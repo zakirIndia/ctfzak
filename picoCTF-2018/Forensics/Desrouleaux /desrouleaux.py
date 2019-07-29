@@ -5,20 +5,20 @@ import socket
 
 def first(sock):
     res = sock.recv(250).decode('utf-8')
-    sock.send('246.69.53.233\n'.encode('utf-8'))  # Your Answer For Non Changing Question 1 
+    sock.send('246.69.53.233\n'.encode('utf-8'))
     res = sock.recv(250).decode('utf-8')
     res = res.split('\n')
     return res
 
 
 def which(ip):
-    if ip == "215.239.98.18":  #IP 1
+    if ip == "215.239.98.18":
         return "1\n"
-    if ip == "246.69.53.233":  #IP 2
+    if ip == "246.69.53.233":
         return "3\n"
-    if ip == "231.205.245.44": #IP 3
+    if ip == "231.205.245.44":
         return "1\n"
-    if ip == "251.165.34.242": #IP 3
+    if ip == "251.165.34.242":
         return "3\n"
 
 
@@ -65,14 +65,13 @@ if __name__ == '__main__':
         second_res = second(sock, first_res)
 
         third_res = third(sock, third_ans)
-        print("THIRD----->", third_res)
+        print("Output : ", third_res)
 
         if third_res[0] == "Correct!":
             break
-
         sock.close()
 
-        time.sleep(1.0)
+        #time.sleep(1.0)
 
         i = i + 0.01
         j = j + 0.01
